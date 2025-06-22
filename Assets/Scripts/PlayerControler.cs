@@ -12,6 +12,7 @@ public class PlayerControler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        penel.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         // ich habe den  Rigibody zugewisen. 
         //m = GameObject.FindWithTag("text").GetComponent<CoinScript>();
@@ -42,9 +43,9 @@ public class PlayerControler : MonoBehaviour
         {
             isgrounded = true;
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision) 
-    {
+    
+   
+    
         if (collision.gameObject.tag == "Enemy")
         {
             penel.SetActive(true);
