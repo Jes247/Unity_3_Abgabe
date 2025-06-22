@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using TMPro;
 
 public class CoinScript : MonoBehaviour
@@ -26,7 +26,7 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        geld.text= money.ToString();
+        geld.text = money.ToString();
     }
 
     public void Addmoney()

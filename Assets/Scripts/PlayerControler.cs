@@ -49,7 +49,7 @@ public class PlayerControler : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             penel.SetActive(true);
-            Destroy(gameObject);
+           Time.timeScale = 0; 
         }
     }
      // Ich habe eine neue Function gemacht inder der Player nur sprigen kann wenn er auf dem Boden ist und nichtm- 
