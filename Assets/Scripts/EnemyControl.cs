@@ -2,30 +2,37 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    public float speed = 3f;
-    public float right;
-    public float left;
-    private Vector3 rotation;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        right = transform.position.x + right;
-        left = transform.position.x - left;
-        rotation = transform.eulerAngles;
-    }
+    public Transform[] patrolPoints;
+    public float moveSpeed;
+    public int patrolDestination;
+
+
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-        if (transform.position.x < left)
+
+        if (patrolDestination == 0)
         {
-            transform.eulerAngles = rotation - new Vector3(0, 180, 0);
+            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[0].position, moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, patrolPoints[0].position) < .2f)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                patrolDestination = 1;
+            }
         }
-        if (transform.position.x < right)
+
+        if (patrolDestination == 1)
         {
-            transform.eulerAngles = rotation;
+            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[1].position, moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, patrolPoints[1].position) < .2f)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                patrolDestination = 0;
+            }
+
         }
-        
-    }
+    }   
+
+
 }

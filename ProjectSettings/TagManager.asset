@@ -9,6 +9,7 @@ TagManager:
   - text
   - Enemy
   - geld
+  - Egg
   layers:
   - Default
   - TransparentFX

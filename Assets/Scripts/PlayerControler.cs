@@ -7,6 +7,7 @@ public class PlayerControler : MonoBehaviour
     public float jump = 5; // ich habe eine Variable gamcht zum springen die ich auch auf den wert 5 gesetzt habe. 
     private bool isgrounded = false; // habe eine Variable (isgrounded) gamcht und einen bool den ich auf false gesetzt habe 
     public GameObject penel;
+    public GameObject winPanel;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,6 +51,11 @@ public class PlayerControler : MonoBehaviour
         {
             penel.SetActive(true);
            Time.timeScale = 0; 
+        }
+        
+        if (collision.gameObject.tag == "Egg")
+        {
+            winPanel.SetActive(true);
         }
     }
      // Ich habe eine neue Function gemacht inder der Player nur sprigen kann wenn er auf dem Boden ist und nichtm- 
